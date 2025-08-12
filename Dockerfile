@@ -25,7 +25,7 @@ RUN addgroup --system --gid 1001 nodejs && \
     chown -R bunjs:nodejs /app
 
 # Copy only necessary files from builder stage
-COPY --from=builder --chown=bunjs:nodejs /app/package.json /app/bun.lockb ./
+COPY --from=builder --chown=bunjs:nodejs /app/package.json /app/bun.lock ./
 COPY --from=builder --chown=bunjs:nodejs /app/index.ts ./
 COPY --from=builder --chown=bunjs:nodejs /app/tsconfig.json ./
 COPY --from=builder --chown=bunjs:nodejs /app/node_modules ./node_modules
